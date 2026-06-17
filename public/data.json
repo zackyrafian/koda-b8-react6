@@ -1,0 +1,23 @@
+[
+  {
+    "username": "fahrulseptiana", 
+    "fullname": "Fahrul Septiana",
+    "photo_profile": "https://miro.medium.com/v2/resize:fill:176:176/1*YOibFKwF_JaKH9IB8GRTrg.jpeg", 
+    "desription_profile": "I am a passionate Full-stack JavaScript Developer with a keen interest in writing about various programming languages.",
+    "followers": 9,
+    "article": [
+      { 
+        "id": "1", 
+        "title": "Bootstrapping Project CodeIgniter4 menggunakan Docker",
+        "slug": "bootstrapping-project-codeigniter4-menggunakan-docker-1"
+      },
+      {
+        "id": "", 
+        "title":"Handling Form: The Efficient Way!"
+      }
+    ]
+  }, 
+  { 
+    
+  }
+]
