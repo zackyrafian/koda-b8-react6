@@ -4,7 +4,9 @@ import './index.css'
 import App from './App.jsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router'
-
+// import { ProfilePage } from './pages'
+import {}
+import './index.css'
 
 const router = createBrowserRouter([
   {
