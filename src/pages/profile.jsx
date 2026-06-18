@@ -1,7 +1,6 @@
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router";
 import Header from "../components/header";
 import { useEffect, useState } from "react";
-
 export default function ProfilePage() {
   const { username } = useParams();
   const [user, setUser] = useState([]);
@@ -15,7 +14,6 @@ export default function ProfilePage() {
     }
     fetchData();
   }, [])
-
   console.log(user);
   return ( 
     <div className="min-h-screen">
@@ -33,33 +31,32 @@ export default function ProfilePage() {
                 <div>About</div>
               </div>
             </header>
-
             <main className="flex flex-col gap-4 pt-8">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <div key={i} className="flex gap-4 items-center">
+              {user.article?.map((article) => (
+                <Link to={`/${username}/${article.slug}`} key={article.id} className="flex gap-4 items-center">
                   <div>
                     <div className="flex items-center text-sm gap-1">
-                      <div className="w-4 h-4 bg-blue-500 items-center justify-center flex">A</div>
-                      <div>In fazztrack by Fahrul Septiana Feb 11, 2025</div>
+                      <div className="w-4 h-4 bg-blue-500 items-center justify-center text-white rounded text-xs flex">A</div>
+                      <div>In fazztrack by {user.fullname} Feb 11, 2025</div>
                     </div>
-
                     <div className="flex flex-col gap-4">
-                      <div className="text-2xl font-semibold">Bootstrapping Project CodeIgniter4 menggunakan Docker</div>
+                      <div className="text-2xl font-semibold">{article.title}</div>
                       <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit ex atque fugiat debitis sunt voluptates recusandae error, vitae quod, rerum, maxime itaque numquam ratione non! In eius quia quo perspiciatis fuga laudantium ipsam odit eum numquam minus dolores hic officia autem laborum adipisci, odio et rerum reiciendis harum aperiam ab.</div>
                     </div>
                   </div>
                   <div>
                     <img src="/dummy.png" alt="pngs" />
                   </div>
-                </div>
+                </Link>
               ))}
             </main>
           </div>
         </div>
           <div className="w-1/4 max-w-screen p-8 flex flex-col justify-between">
           <div className="flex flex-col gap-4"> 
-            <div className="bg-blue-500 w-22 h-22 rounded-full flex items-center justify-center">A</div>
-
+            <div className="bg-blue-500 w-22 h-22 rounded-full flex items-center justify-center overflow-hidden">
+              <img src={user.photo_profile} alt="" />
+            </div>
             <div>{user.fullname}</div>
             <div>{user.followers} followers
 </div>
@@ -101,11 +98,7 @@ export default function ProfilePage() {
     </div>
   )
 }
-
 // 160 x 166
-
 // Fahrul Septiana
 // 8 followers
 // I am a passionate Full-stack JavaScript Developer with a keen interest in writing about various programming languages.
-
-
